@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Barbearia - Agendamento
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h3 class="display-4">Detalhes do Agendamento</h3>
+
+    <div class="card">
+      <div class="card-body">
+        <p class="card-text">Nome: {{ object.customer_name }}</p>
+        <p class="card-text">Dia: {{ object.day_schedule|date:"d/m/Y" }}</p>
+        <p class="card-text">Horário: {{ object.time_schedule }}</p>
+        <p class="card-text">Serviços: {{ formatted_service_names }}</p>
+        <p class="card-text">Preço: <strong>R$ {{ object.total_price }}</strong></p>
+      </div>
+    </div>
+
+    <a href="{% url 'schedule_list' %}" class="btn btn-secondary mt-3">Voltar para Horário</a>
+  </div>
+{% endblock %}

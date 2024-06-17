@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Cliente</th>
+                <th>Dia</th>
+                <th>Horário</th>
+                <th>Serviços</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for schedule in schedules %}
+                <tr>
+                    <td>{{ schedule.customer_name }}</td>
+                    <td>{{ schedule.day_schedule }}</td>
+                    <td>{{ schedule.time_schedule }}</td>
+                    <td>{{ schedule.formatted_service_names }}</td>
+                    <td>{{ schedule.total_price }}</td>
+                    <td>
+                        <a href="{% url 'schedule_detail' schedule.id %}" class="btn btn-info btn-sm">
+                            <i class="bi bi-eye"></i>
+                        </a>
+                        <a href="{% url 'schedule_update' schedule.id %}" class="btn btn-warning btn-sm">
+                            <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="{% url 'schedule_delete' schedule.id %}" class="btn btn-danger btn-sm btn-delete">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

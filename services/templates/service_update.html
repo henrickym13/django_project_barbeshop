@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Barbearia - Editar Serviço
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h3 class="display-4">Editar Serviço</h3>
+
+    <div class="card">
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn btn-primary">Atualizar Serviço</button>
+        </form>
+      </div>
+    </div>
+
+    <a href="{% url 'service_list' %}" class="btn btn-secondary mt-3">Cancelar e Voltar para a Lista de Serviços</a>
+  </div>
+{% endblock %}

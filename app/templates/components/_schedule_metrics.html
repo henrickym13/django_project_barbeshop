@@ -1,0 +1,31 @@
+<div class="card mt-4">
+    <div class="card-body">
+        <div class="row d-flex justify-content-between">
+            <div class="col-md-3">
+                <div class="card bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">Quantidade de Cortes do dia</h5>
+                        <p class="card-text text-white font-weight-bold display-6">{{ context.quantity }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">Lucro Esperado do dia</h5>
+                        <p class="card-text text-white font-weight-bold display-6">R$ {{ context.total_price_day }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Lucro Esperado do mês</h5>
+                        <p class="card-text text-white font-weight-bold display-6">
+                            R$ {{ context.total_price_month }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
