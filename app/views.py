@@ -1,12 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from . import metrics
 
 
 def login_user(request):
     if request.user.is_authenticated:
-        messages.info(request, 'Usuario já está logado.')
         return render('index')
     
     if request.method == 'POST':
@@ -16,10 +14,8 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request, 'Você está logado!')
             return redirect('index')
         else: 
-            messages.warning(request,'Ocorreu  um err oao fazer login, tente novamente')
             return redirect('login')
     else:
         return render(request, 'login.html')
@@ -27,7 +23,6 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, 'Você foi desconectado')
     return redirect('login')
 
 
